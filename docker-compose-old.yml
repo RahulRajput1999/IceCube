@@ -2,7 +2,7 @@ version: "3"
 
 services:
   namenode:
-    image: bde2020/hadoop-namenode:master
+    image: bde2020/hadoop-namenode:2.0.0-hadoop3.2.1-java8
     container_name: namenode
     restart: always
     ports:
@@ -17,7 +17,7 @@ services:
       - ./hadoop.env
 
   datanode:
-    image: bde2020/hadoop-datanode:master
+    image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
     container_name: datanode
     restart: always
     volumes:
@@ -31,7 +31,7 @@ services:
       - ./hadoop.env
 
   resourcemanager:
-    image: bde2020/hadoop-resourcemanager:master
+    image: bde2020/hadoop-resourcemanager:2.0.0-hadoop3.2.1-java8
     container_name: resourcemanager
     restart: always
     environment:
@@ -40,7 +40,7 @@ services:
       - ./hadoop.env
 
   nodemanager1:
-    image: bde2020/hadoop-nodemanager:master
+    image: bde2020/hadoop-nodemanager:2.0.0-hadoop3.2.1-java8
     container_name: nodemanager
     restart: always
     environment:
@@ -49,7 +49,7 @@ services:
       - ./hadoop.env
 
   historyserver:
-    image: bde2020/hadoop-historyserver:master
+    image: bde2020/hadoop-historyserver:2.0.0-hadoop3.2.1-java8
     container_name: historyserver
     restart: always
     environment:
@@ -84,7 +84,7 @@ services:
       - CORE_CONF_fs_defaultFS=hdfs://namenode:9000
 
   hive-server:
-    image: bde2020/hive:master
+    image: bde2020/hive:2.3.2-postgresql-metastore
     container_name: hive-server
     depends_on:
       - namenode
@@ -98,7 +98,7 @@ services:
       - "10000:10000"
 
   hive-metastore:
-    image: bde2020/hive:master
+    image: bde2020/hive:2.3.2-postgresql-metastore
     container_name: hive-metastore
     env_file:
       - ./hadoop-hive.env
