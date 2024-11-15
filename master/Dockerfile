@@ -1,4 +1,4 @@
-FROM bde2020/spark-base:3.0.0-hadoop3.2
+FROM spark-base-new:latest
 
 
 COPY master.sh /
