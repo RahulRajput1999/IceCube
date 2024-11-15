@@ -66,9 +66,9 @@ This project provides a fully containerized environment for experimenting with H
    hiveserver2
    ```
 3. Launch the beeline interface
-  ```bash
-  beeline
-  ```
+   ```bash
+   beeline
+   ```
 3. Execute your query:  
    ```sql
    SELECT * FROM your_table LIMIT 10;
